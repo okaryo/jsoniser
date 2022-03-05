@@ -7,7 +7,7 @@ mixin Jsoniser<T> {
     final mirror = reflect(this);
     final Map<String, dynamic> json = {};
 
-    for (var value in mirror.type.declarations.values) {
+    for (final value in mirror.type.declarations.values) {
       if (value is VariableMirror) {
         final fieldName = MirrorSystem.getName(value.simpleName);
         json[fieldName] = mirror.getField(value.simpleName).reflectee;

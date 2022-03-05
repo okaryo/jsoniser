@@ -10,7 +10,7 @@ class Test with Jsoniser {
 }
 
 void main() {
-  final testClass = Test('string value', 10, ['list1', 'list2']);
+  final testClass = const Test('string value', 10, ['list1', 'list2']);
 
   group('#toJson', () {
     test('should return json', () {
