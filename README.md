@@ -1,3 +1,5 @@
+[![Test and Lint](https://github.com/okaryo/jsoniser/actions/workflows/test-and-lint.yml/badge.svg)](https://github.com/okaryo/jsoniser/actions/workflows/test-and-lint.yml)
+
 # jsoniser
 
 Dart package that provides class serialization to json.
