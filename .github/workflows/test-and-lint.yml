@@ -1,0 +1,19 @@
+name: Test and Lint
+
+on:
+  push:
+
+jobs:
+  test-and-lint:
+    name: Run test and lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      - name: Run test
+        run: dart run test
+      - name: Run analyze
+        run: dart analyze
