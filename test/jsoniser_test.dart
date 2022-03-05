@@ -1,12 +1,29 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:jsoniser/jsoniser.dart';
+import 'package:test/test.dart';
+
+class Test with Jsoniser {
+  final String stringField;
+  final int intField;
+  final List<dynamic> listField;
+
+  const Test(this.stringField, this.intField, this.listField);
+}
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  final testClass = Test('string value', 10, ['list1', 'list2']);
+
+  group('#toJson', () {
+    test('should return json', () {
+      final actual = testClass.toJson();
+      final expected = {
+        'stringField': 'string value',
+        'intField': 10,
+        'listField': [
+          'list1',
+          'list2',
+        ],
+      };
+      expect(actual, expected);
+    });
   });
 }
